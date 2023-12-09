@@ -17,7 +17,7 @@ const router = useRouter();
     const courseLoading = useRecoilValue(isCourseLoading);
 
     useEffect(() => {
-        axios.get(`http:localhost:3000/admin/course/${courseId}`, {
+        axios.get(`/api/admin/course/${courseId}`, {
             method: "GET",
             headers: {
                 "Authorization": "Bearer " + localStorage.getItem("token")
@@ -118,7 +118,7 @@ function UpdateCard() {
             <Button
                 variant="contained"
                 onClick={async () => {
-                    axios.put(`http:localhost:3000/admin/courses/` + courseDetails.course._id, {
+                    axios.put(`/api/admin/courses/` + courseDetails.course._id, {
                         title: title,
                         description: description,
                         imageLink: image,

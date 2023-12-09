@@ -51,7 +51,7 @@ function Signin() {
                     size={"large"}
                     variant="contained"
                     onClick={async () => {
-                        const res = await axios.post(`http:localhost:3000/admin/login`, {
+                        const res = await axios.post(`/api/admin/login`, {
                             username: email,
                             password: password
                         }, {
