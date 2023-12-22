@@ -2,8 +2,8 @@ import {Typography} from "@mui/material";
 import Button from "@mui/material/Button";
 import { isUserLoading } from "../store/selectors/isUserLoading";
 import {useSetRecoilState, useRecoilValue} from "recoil";
-import { userState } from "../store/atoms/user.js";
-import { userEmailState } from "../store/selectors/userEmail"
+import { userState } from '@/store/atoms/user';
+import { userEmailState } from "@/store/selectors/userEmail"
 import { useRouter } from "next/router";
 
 function Appbar({}) {

@@ -6,7 +6,7 @@ import axios from "axios";
 // import { BASE_URL } from "../config.js";
 // import {useNavigate} from "react-router-dom";
 import {useSetRecoilState} from "recoil";
-import {userState} from "../store/atoms/user";
+import {userState} from "@/store/atoms/user";
 import { useRouter } from 'next/router.js';
 
 function Signup() {

@@ -1,25 +1,33 @@
+import Appbar from '@/components/Appbar';
 import { userState } from '@/store/atoms/user';
+import { isUserLoading } from '@/store/selectors/isUserLoading';
 import '@/styles/globals.css'
 import axios from 'axios';
 import type { AppProps } from 'next/app'
 import React from 'react';
-import { RecoilRoot, useSetRecoilState } from 'recoil';
+import { RecoilRoot, useRecoilValue, useSetRecoilState } from 'recoil';
+
 
 export default function App({ Component, pageProps }: AppProps) {
   return <>
-    <RecoilRoot>
-            <div style={{width: "100vw",
-                height: "100vh",
-                backgroundColor: "#eeeeee"}}
-            >
-   <InitUser/>
-  <Component {...pageProps} />
-  </div>
+    <RecoilRoot>      
+  <App2 Component={Component} pageProps={pageProps}   />
   </RecoilRoot>
   </>
 }
-
-
+function App2({Component, pageProps}) {
+    const userLoading = useRecoilValue(isUserLoading);
+    if (userLoading) {
+      return <>
+      Loading...
+      <InitUser />
+    </>
+    }
+    return <div> 
+      <Appbar />
+      <Component {...pageProps} /> 
+    </div>
+  }
 function InitUser() {
   const setUser = useSetRecoilState(userState);
   const init = async() => {

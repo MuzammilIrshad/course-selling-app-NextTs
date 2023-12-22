@@ -4,7 +4,7 @@ import {Card, Typography} from "@mui/material";
 import {useState} from "react";
 import axios from "axios";
 import {useSetRecoilState} from "recoil";
-import {userState} from "../store/atoms/user";
+import {userState} from "@/store/atoms/user";
 import { useRouter } from 'next/router.js';
 
 function Signin() {
@@ -51,7 +51,7 @@ function Signin() {
                     size={"large"}
                     variant="contained"
                     onClick={async () => {
-                        const res = await axios.post(`/api/admin/login`, {
+                        const res = await axios.post(`/api/admin/signin`, {
                             username: email,
                             password: password
                         }, {
